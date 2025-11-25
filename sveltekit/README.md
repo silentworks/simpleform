@@ -18,16 +18,9 @@ Setup local SQLite datbase
 ```sh
 bun run build:db
 ```
-```
 
 Open project in the browser
 
 ```
 bun run dev --open
 ```
-```
-```
-```
-```
-```
-
