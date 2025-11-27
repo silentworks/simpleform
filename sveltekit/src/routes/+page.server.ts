@@ -1,23 +1,23 @@
 import { fail } from '@sveltejs/kit';
 import { ZodError } from 'zod';
 import type { Actions, PageServerLoad } from './$types';
-import { PostSchema } from '$lib/schemaValidation';
+import { PostSchema } from '$lib/validationSchema';
 import { db } from '$lib/server/db';
 import { post } from '$lib/server/db/schema';
 import { formatError } from '$lib';
 
 export const load: PageServerLoad = async () => {
-	const posts = await db.select({
-		id: post.id,
-		title: post.title,
-		content: post.content
-	}).from(post);
+  const posts = await db.select({
+    id: post.id,
+    title: post.title,
+    content: post.content
+  }).from(post);
 
-	if (!posts) {
-		return {}
-	}
+  if (!posts) {
+    return {}
+  }
 
-	return { posts };
+  return { posts };
 }
 
 export const actions = {
